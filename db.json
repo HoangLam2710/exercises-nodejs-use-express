@@ -19,7 +19,9 @@
     {
       "name": "Lam",
       "phone": "0396323430",
-      "id": "JpfVof0PvmLnYWy0c2VTp"
+      "id": "JpfVof0PvmLnYWy0c2VTp",
+      "email": "hoanglam271096@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e"
     },
     {
       "name": "Uyen",
@@ -35,6 +37,11 @@
       "name": "Tin",
       "phone": "0363516151",
       "id": "TTtkMJSrAnukld8ZleMwF"
+    },
+    {
+      "name": "ABC",
+      "phone": "0958119402",
+      "id": "CInXDfx0PMgZsbTlr7Uwo"
     }
   ]
 }
