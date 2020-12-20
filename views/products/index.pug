@@ -1,0 +1,63 @@
+extends ../layout/common
+
+block content
+	h1 Products
+
+	.container
+		.row.row-cols-4
+			each product in products
+				.col
+					.card.mx-auto.my-3(style='width: 18rem;')
+						img.card-img-top(src=product.image alt='...')
+						.card-body
+							h5.card-title= product.name
+							h6.cart-text= product.price
+							p.card-text= product.description
+							a.btn.btn-primary(href='#') Add to cart
+
+	.container
+		.row.row-cols-12
+			nav(aria-label='Page navigation example')
+				ul.pagination.justify-content-center
+					li.page-item
+						a.page-link(href='?page='+prevPage, aria-label='Previous')
+							span(aria-hidden='true') &laquo;
+					//- - var n = 1;
+					//- 	while n <= amountPage
+					//- 		if(n !== page)
+					//- 			li.page-item
+					//- 				a.page-link(href='?page='+n)= n++
+					//- 		else
+					//- 			li.page-item.active
+					//- 				a.page-link(href='?page='+n)= n++
+					- var n = page - 1;
+					- var m = page;
+						if(page == 1)
+							while m <= page + 1
+								if(m !== page)
+									li.page-item
+										a.page-link(href='?page='+m)= m++
+								else
+									li.page-item.active
+										a.page-link(href='?page='+m)= m++
+						else if (page == amountPage)
+							while n < page + 1
+								if(n !== page)
+									li.page-item
+										a.page-link(href='?page='+n)= n++
+								else
+									li.page-item.active
+										a.page-link(href='?page='+n)= n++
+						else
+							while n <= page + 1
+								if(n !== page)
+									li.page-item
+										a.page-link(href='?page='+n)= n++
+								else
+									li.page-item.active
+										a.page-link(href='?page='+n)= n++
+						
+
+					li.page-item
+						a.page-link(href='?page='+nextPage, aria-label='Next')
+							span(aria-hidden='true') &raquo;
