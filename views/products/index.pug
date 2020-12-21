@@ -13,7 +13,7 @@ block content
 							h5.card-title= product.name
 							h6.cart-text= product.price
 							p.card-text= product.description
-							a.btn.btn-primary(href='#') Add to cart
+							a.btn.btn-primary(href='/cart/add/' + product.id) Add to cart
 
 	.container
 		.row.row-cols-12
