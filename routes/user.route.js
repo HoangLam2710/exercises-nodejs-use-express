@@ -1,7 +1,21 @@
 var express = require('express');
+var multer  = require('multer');
 
 var controller = require('../controllers/user.controller');
 var validate = require('../validate/user.validate');
+
+// var upload = multer({ dest: './public/uploads/' });
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname)
+    }
+});
+  
+var upload = multer({ storage: storage });
 
 var router = express.Router();
 
@@ -18,6 +32,10 @@ router.get('/create', controller.create);
 
 router.get('/:userId', controller.get);
 
-router.post('/create', validate.postCreate, controller.postCreate);
+router.post('/create', 
+	upload.single('avatar'), 
+	validate.postCreate, 
+	controller.postCreate
+);
 
 module.exports = router;
