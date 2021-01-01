@@ -8,6 +8,7 @@ block content
 			.alert.alert-danger= error
 
 	form(method="POST")
+		input(type="hidden", name="_csrf", value=csrfToken)
 		.form-group.mb-3
 			label(for="email").form-label Email
 			input#email.form-control(name="email" type="email" value=values ? values.email : "")
